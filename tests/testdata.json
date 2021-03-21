@@ -1,0 +1,25 @@
+{
+    "tokenlizer": 
+    {
+        "input":
+        [
+            "5 2 / 4 * sqrt undo sqrt clear xxx"
+        ],
+        "output":
+        [
+            [
+                {"raw":"5","position":1,"type":"operand","value":5},
+                {"raw":"2","position":3,"type":"operand","value":2},
+                {"raw":"/","position":5,"type":"operator","operation":"div"},
+                {"raw":"4","position":7,"type":"operand","value":4},
+                {"raw":"*","position":9,"type":"operator","operation":"mul"},
+                {"raw":"sqrt","position":11,"type":"operator","operation":"sqrt"},
+                {"raw":"undo","position":16,"type":"undo"},
+                {"raw":"sqrt","position":21,"type":"operator","operation":"sqrt"},
+                {"raw":"clear","position":26,"type":"clear"},
+                {"raw":"xxx","position":32,"type":"unknown"}
+            ]
+        ]
+    }
+
+}
