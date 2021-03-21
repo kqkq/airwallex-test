@@ -33,6 +33,41 @@ docker-compose run --rm app
 
 HTML test reports are generated in the `reports/` directory.
 
+## Brief test reports
+
+### Unit test report
+
+```
+  StackMachine test
+    ✓ should do the add operation
+    ✓ should do the sub operation
+    ✓ should do the mul operation
+    ✓ should do the div operation
+    ✓ should do the sqrt operation
+    ✓ should do the undo operation
+    ✓ should do the clear operation
+    ✓ should throw insufficient parameters
+    ✓ should throw unknown token
+
+  Tokenlizer test
+    ✓ should work when input is empty
+    ✓ should work when input is "5 2 / 4 * sqrt undo sqrt clear xxx"
+
+  11 passing (14ms)
+```
+
+### Code coverage
+
+```
+------------------|---------|----------|---------|---------|-------------------
+File              | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+------------------|---------|----------|---------|---------|-------------------
+All files         |     100 |      100 |     100 |     100 |                   
+ stack_machine.js |     100 |      100 |     100 |     100 |                   
+ tokenlizer.js    |     100 |      100 |     100 |     100 |                   
+------------------|---------|----------|---------|---------|-------------------
+```
+
 ## Build
 
 Install all dependencies by
