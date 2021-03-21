@@ -1,25 +1,232 @@
 {
-    "tokenlizer": 
-    {
-        "input":
-        [
-            "5 2 / 4 * sqrt undo sqrt clear xxx"
-        ],
-        "output":
-        [
-            [
-                {"raw":"5","position":1,"type":"operand","value":5},
-                {"raw":"2","position":3,"type":"operand","value":2},
-                {"raw":"/","position":5,"type":"operator","operation":"div"},
-                {"raw":"4","position":7,"type":"operand","value":4},
-                {"raw":"*","position":9,"type":"operator","operation":"mul"},
-                {"raw":"sqrt","position":11,"type":"operator","operation":"sqrt"},
-                {"raw":"undo","position":16,"type":"undo"},
-                {"raw":"sqrt","position":21,"type":"operator","operation":"sqrt"},
-                {"raw":"clear","position":26,"type":"clear"},
-                {"raw":"xxx","position":32,"type":"unknown"}
-            ]
-        ]
+  "tokenlizer": {
+    "input": [
+      "5 2 / 4 * sqrt undo sqrt clear xxx"
+    ],
+    "output": [
+      [
+        {
+          "raw": "5",
+          "position": 1,
+          "type": "operand",
+          "value": 5
+        },
+        {
+          "raw": "2",
+          "position": 3,
+          "type": "operand",
+          "value": 2
+        },
+        {
+          "raw": "/",
+          "position": 5,
+          "type": "operator",
+          "operation": "div"
+        },
+        {
+          "raw": "4",
+          "position": 7,
+          "type": "operand",
+          "value": 4
+        },
+        {
+          "raw": "*",
+          "position": 9,
+          "type": "operator",
+          "operation": "mul"
+        },
+        {
+          "raw": "sqrt",
+          "position": 11,
+          "type": "operator",
+          "operation": "sqrt"
+        },
+        {
+          "raw": "undo",
+          "position": 16,
+          "type": "undo"
+        },
+        {
+          "raw": "sqrt",
+          "position": 21,
+          "type": "operator",
+          "operation": "sqrt"
+        },
+        {
+          "raw": "clear",
+          "position": 26,
+          "type": "clear"
+        },
+        {
+          "raw": "xxx",
+          "position": 32,
+          "type": "unknown"
+        }
+      ]
+    ]
+  },
+  "machine": {
+    "input": {
+      "add": [
+        {
+          "raw": "1",
+          "position": 1,
+          "type": "operand",
+          "value": 1
+        },
+        {
+          "raw": "1",
+          "position": 3,
+          "type": "operand",
+          "value": 1
+        },
+        {
+          "raw": "+",
+          "position": 5,
+          "type": "operator",
+          "operation": "add"
+        }
+      ],
+      "sub": [
+        {
+          "raw": "2",
+          "position": 2,
+          "type": "operand",
+          "value": 2
+        },
+        {
+          "raw": "1",
+          "position": 3,
+          "type": "operand",
+          "value": 1
+        },
+        {
+          "raw": "-",
+          "position": 5,
+          "type": "operator",
+          "operation": "sub"
+        }
+      ],
+      "mul": [
+        {
+          "raw": "2",
+          "position": 1,
+          "type": "operand",
+          "value": 2
+        },
+        {
+          "raw": "3",
+          "position": 3,
+          "type": "operand",
+          "value": 3
+        },
+        {
+          "raw": "*",
+          "position": 5,
+          "type": "operator",
+          "operation": "mul"
+        }
+      ],
+      "div": [
+        {
+          "raw": "4",
+          "position": 1,
+          "type": "operand",
+          "value": 4
+        },
+        {
+          "raw": "2",
+          "position": 3,
+          "type": "operand",
+          "value": 2
+        },
+        {
+          "raw": "/",
+          "position": 5,
+          "type": "operator",
+          "operation": "div"
+        }
+      ],
+      "sqrt": [
+        {
+          "raw": "4",
+          "position": 1,
+          "type": "operand",
+          "value": 4
+        },
+        {
+          "raw": "sqrt",
+          "position": 3,
+          "type": "operator",
+          "operation": "sqrt"
+        }
+      ],
+      "undo": [
+        {
+          "raw": "2",
+          "position": 1,
+          "type": "operand",
+          "value": 2
+        },
+        {
+          "raw": "1",
+          "position": 3,
+          "type": "operand",
+          "value": 1
+        },
+        {
+          "raw": "-",
+          "position": 5,
+          "type": "operator",
+          "operation": "sub"
+        },
+        {
+          "raw": "undo",
+          "position": 7,
+          "type": "undo"
+        }
+      ],
+      "clear": [
+        {
+          "raw": "4",
+          "position": 1,
+          "type": "operand",
+          "value": 4
+        },
+        {
+          "raw": "2",
+          "position": 3,
+          "type": "operand",
+          "value": 2
+        },
+        {
+          "raw": "clear",
+          "position": 5,
+          "type": "clear"
+        }
+      ]
+    },
+    "output": {
+      "add": [
+        2
+      ],
+      "sub": [
+        1
+      ],
+      "mul": [
+        6
+      ],
+      "div": [
+        2
+      ],
+      "sqrt": [
+        2
+      ],
+      "undo": [
+        2,
+        1
+      ],
+      "clear": []
     }
-
+  }
 }

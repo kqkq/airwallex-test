@@ -9,10 +9,6 @@ class StackMachine
     return this._stack;
   }
 
-  set stack(val) {
-    this._stack = val; 
-  }
-
   instruct(token) {
     switch(token.type) {
       case 'operator':
