@@ -28,4 +28,10 @@ describe('StackMachine test', () => {
       machine.instruct({"raw":"xxx","position":1,"type":"unknown"});
     }).to.throw('unknown token');
   })
+  it('should throw nothing to undo', () => {
+    let machine = new StackMachine();
+    expect(() => { 
+      machine.instruct({"raw": "undo","position": 1,"type": "undo"});
+    }).to.throw('nothing to undo');
+  })
 });

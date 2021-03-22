@@ -48,12 +48,13 @@ HTML test reports are generated in the `reports/` directory.
     ✓ should do the clear operation
     ✓ should throw insufficient parameters
     ✓ should throw unknown token
+    ✓ should throw nothing to undo
 
   Tokenlizer test
     ✓ should work when input is empty
     ✓ should work when input is "5 2 / 4 * sqrt undo sqrt clear xxx"
 
-  11 passing (14ms)
+  12 passing (22ms)
 ```
 
 ### Code coverage
