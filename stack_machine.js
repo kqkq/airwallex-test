@@ -10,31 +10,28 @@ class StackMachine
   }
 
   instruct(token) {
-    switch(token.type) {
-      case 'operator':
-        try {
+    try {
+      switch(token.type) {
+        case 'operator':
           this[`_${token.operation}`].bind(this).call();
-        } catch (e) {
-          e.operator = token.raw;
-          e.position = token.position;
-          throw e;
-        }
-        break;
-      case 'operand':
-        this._stack.push(token.value);
-        this._undo_stack.push([]);
-        break;
-      case 'clear':
-        this.clearStack();
-        break;
-      case 'undo':
-        this.undoStack();
-        break;
-      default:
-        let e = new Error('unknown token');
-        e.operator = token.raw;
-        e.position = token.position;
-        throw e;
+          break;
+        case 'operand':
+          this._stack.push(token.value);
+          this._undo_stack.push([]);
+          break;
+        case 'clear':
+          this.clearStack();
+          break;
+        case 'undo':
+          this.undoStack();
+          break;
+        default:
+          throw new Error('unknown token');
+      } 
+    } catch (e) {
+      e.operator = token.raw;
+      e.position = token.position;
+      throw e;
     }
   }
 
@@ -43,6 +40,7 @@ class StackMachine
   }
 
   undoStack() {
+    if(this._undo_stack.length == 0) throw new Error('nothing to undo');
     let op = this._undo_stack.pop();
     this._stack.pop();
     for(let i = 0; i < op.length; i++) {
